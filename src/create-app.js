@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
-import { rootRouter } from './routes';
+import router from './application/routes';
 import { AppError } from './utils';
 
 export function createApp() {
@@ -19,7 +19,7 @@ export function createApp() {
     app.use(bodyParser.json());
 
     // Add routes
-    app.use(rootRouter);
+    app.use(router);
 
     // Add Swagger
     const apiDocument = require('./openapi.json');
